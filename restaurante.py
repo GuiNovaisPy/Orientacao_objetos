@@ -1,6 +1,7 @@
 
-
 class Restaurante:
+    
+    restaurantes = []
     
     def __init__(self,nome,categoria) -> None: 
         
@@ -9,26 +10,20 @@ class Restaurante:
         self.nome = nome
         self.categoria = categoria
         self.ativo = False
+        Restaurante.restaurantes.append(self.nome)
         
     def __str__(self) -> str:
         
         # o __str__ é um metodo especial que te permite alocar algo que voce tenha de atributo no seu objeto e queira devolver ele na variavel de instancia do objeto
         return self.nome
-        
+    
+    
+    def listar_restaurantes(self) -> None:
+        for item in Restaurante.restaurantes:
+            print(item)
 
 restaurante_1 = Restaurante(nome='Restaurante 1',categoria='Gourmet')
-print(restaurante_1)# printa oq for devolvido no metodo especial __str__ e se ele não existe printa o objeto e o espaço da memoria onde ele esta alocado
+restaurante_2 = Restaurante(nome='Restaurante 2',categoria='bar')
 
-restaurante_1.nome = "Pizzaria"
-print(restaurante_1)
-
-
-print(f'''
-Nome restaurante: {restaurante_1.nome}
-Categoria restaurate: {restaurante_1.categoria}
-Ativo? {restaurante_1.ativo}
-''')
-
-
-
+restaurante_1.listar_restaurantes()
 

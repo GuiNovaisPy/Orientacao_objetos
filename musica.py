@@ -1,36 +1,32 @@
 class Musica:
     
-    '''Objeto para a criação de musicas'''
     
-    nome =  ''
-    artista = ''
-    duracao = ''
+    musicas = []
+    
+    def __init__(self,nome,artista,duracao) -> None:
+    
+        self.nome = nome
+        self.artista = artista
+        self.duracao = duracao
+        
+        Musica.musicas.append(self.nome)
+        
+        
+    def __str__(self) -> str:
+        return self.nome
+    
+    
+    def listar_todas_musicas(self) -> None:
+        
+        for musica in Musica.musicas:
+            print(musica)
 
 
 
 
-instance_rock = Musica()
-instance_rock.nome = 'Metal'
-instance_rock.artista = 'Guilherme'
-instance_rock.duracao = '3min'
-
-print(f'''Titulo: Rock
-      
-    Nome msc:'{instance_rock.nome}
-    Artista: {instance_rock.artista}
-    Duracao msc: {instance_rock.duracao}
-''')   
+instance_rock = Musica(nome='Metal',artista='Guilherme',duracao='3min')
+instance_samba = Musica('Samba','Jorge','1min')
 
 
+instance_samba.listar_todas_musicas()
 
-instance_samba = Musica()
-instance_samba.nome = 'Samba'
-instance_samba.artista = 'Jorge'
-instance_samba.duracao = '1min'
-
-print(f'''Titulo: Samba
-      
-    Nome msc:{instance_samba.nome}
-    Artista: {instance_samba.artista}
-    Duracao msc: {instance_samba.duracao }
-''')   

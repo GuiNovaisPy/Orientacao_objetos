@@ -45,7 +45,8 @@ class Restaurante:
             print("Categoria:",item._categoria)
             print("Ativo:",item.ativo) # modificado com o @property
             #print(item._ativo) # o reservado dentro do objeto(original)
-            print("Avalicao:",item.media_avaliacoes)
+            print("Avaliação:",item.media_avaliacoes[0]) 
+            print("Qtd avaliações:",item.media_avaliacoes[1])
            
             
            
@@ -59,6 +60,7 @@ class Restaurante:
         sempre que o atributo for ACESSADO. """
           
         return 'Ativo' if self._ativo is True else 'Inativo'
+    
     
     def alternar_estado(self):
         """Funcao para alternar estado do restaurante.
@@ -86,12 +88,15 @@ class Restaurante:
         
         
         if not self._avaliacoes:
-            return "Sem avaliacões"
+            return "Sem avaliacões",0
         
         soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacoes)
         qtd_notas = len(self._avaliacoes)
         media_notas = round(soma_notas/ qtd_notas,1)
-        return media_notas
+        return float(media_notas),int(qtd_notas)
+    
+    
+    
     
 
     

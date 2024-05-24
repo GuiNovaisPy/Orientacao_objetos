@@ -68,14 +68,25 @@ class Restaurante:
         
         
     def receber_avaliacao(self,cliente,nota):
-        avaliacao = Avaliacao(cliente,nota)
+        
+        """ Funcao que recebe as avaliações do restaurante refente ao objeto instanciado.
+            a avaliacao recebidade deve estar entre 0 e 5, caso contrario não será registrada.
+        """
+        
+        avaliacao = Avaliacao(cliente,nota) if nota in range(0,5) else None
+        if avaliacao is None:
+            return "A avaliação deve ser de 0 a 5"
         self._avaliacoes.append(avaliacao)
         
     
     @property  
     def media_avaliacoes(self):
+        
+        """getter que criar o atributo que retorna a media de avaliacoes recebidas"""
+        
+        
         if not self._avaliacoes:
-            return 0
+            return "Sem avaliacões"
         
         soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacoes)
         qtd_notas = len(self._avaliacoes)

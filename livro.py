@@ -13,3 +13,11 @@ class Livro:
 
     def aumentar_paginas(self, quantidade):
         self.paginas += quantidade
+        
+        
+        
+        
+        
+l = Livro("Capadocia","Guilherme",10)
+l.aumentar_paginas(20)
+print(l)

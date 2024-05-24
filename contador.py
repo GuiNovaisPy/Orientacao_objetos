@@ -1,8 +1,5 @@
 class Contador:
-    '''
-    Classe que representa um contador.
-    A instância mantém um contador específico, enquanto um contador global é compartilhado por todas as instâncias.
-    '''
+  
 
     contador_global = 0
 

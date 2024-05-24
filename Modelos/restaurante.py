@@ -1,3 +1,5 @@
+from Modelos.avaliacao import Avaliacao
+
 
 class Restaurante:
     
@@ -13,7 +15,9 @@ class Restaurante:
         
         self._nome = nome.title()
         self._categoria = categoria.title()
-        self._ativo = ativo #
+        self._ativo = ativo 
+        self._avaliacoes = []
+        
         Restaurante.restaurantes.append(self)
         
     def __str__(self) -> str:
@@ -37,10 +41,15 @@ class Restaurante:
         """
         
         for item in cls.restaurantes:
-            print(item._nome)
-            print(item._categoria)
-            print(item.ativo)# modificado com o @property
-            print(item._ativo) # o reservado dentro do objeto(original)
+            print("Nome restaurante:",item._nome)
+            print("Categoria:",item._categoria)
+            print("Ativo:",item.ativo) # modificado com o @property
+            #print(item._ativo) # o reservado dentro do objeto(original)
+            print("Avalicao:",item.media_avaliacoes)
+           
+            
+           
+            
             print(60*"-")
             
             
@@ -56,14 +65,26 @@ class Restaurante:
         negar um valor como abaixo inverte o valor bool atual"""
         
         self._ativo = not self._ativo 
+        
+        
+    def receber_avaliacao(self,cliente,nota):
+        avaliacao = Avaliacao(cliente,nota)
+        self._avaliacoes.append(avaliacao)
+        
+    
+    @property  
+    def media_avaliacoes(self):
+        if not self._avaliacoes:
+            return 0
+        
+        soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacoes)
+        qtd_notas = len(self._avaliacoes)
+        media_notas = round(soma_notas/ qtd_notas,1)
+        return media_notas
     
 
     
 
-restaurante_1 = Restaurante(nome='Restaurante 1',categoria='Gourmet',ativo=False)
-restaurante_2 = Restaurante(nome='Restaurante 2',categoria='bar',ativo=True)
-
-Restaurante.listar_restaurantes()
 
 
 

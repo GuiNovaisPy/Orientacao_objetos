@@ -39,7 +39,8 @@ class Restaurante:
         for item in cls.restaurantes:
             print(item._nome)
             print(item._categoria)
-            print(item.ativo)
+            print(item.ativo)# modificado com o @property
+            print(item._ativo) # o reservado dentro do objeto(original)
             print(60*"-")
             
             
@@ -60,7 +61,6 @@ class Restaurante:
     
 
 restaurante_1 = Restaurante(nome='Restaurante 1',categoria='Gourmet',ativo=False)
-print(restaurante_1)
 restaurante_2 = Restaurante(nome='Restaurante 2',categoria='bar',ativo=True)
 
 Restaurante.listar_restaurantes()

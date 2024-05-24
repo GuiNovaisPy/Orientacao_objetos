@@ -22,7 +22,7 @@ class Restaurante:
         """o __str__ é um metodo especial que te permite alocar algo que voce
         tenha de atributo no seu objeto e queira devolver ele na variavel de instancia do objeto"""
         
-        return self._nome
+        return self._ativo
     
     
     
@@ -52,7 +52,7 @@ class Restaurante:
     def ativo(self) -> str:
         
         """@property é um Decoretor do python que modifica como o atributo vai ser lido e acessado
-        sempre que o atributo for chamado ele passa por aqui para "tratamento"""""
+        sempre que o atributo for ACESSADO. """
           
         return 'Ativo' if self._ativo is True else 'Inativo'
     
@@ -70,6 +70,7 @@ class Restaurante:
     
 
 restaurante_1 = Restaurante(nome='Restaurante 1',categoria='Gourmet',ativo=False)
+print(restaurante_1)
 restaurante_2 = Restaurante(nome='Restaurante 2',categoria='bar',ativo=True)
 
 Restaurante.listar_restaurantes()
